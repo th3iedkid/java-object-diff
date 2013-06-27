@@ -28,7 +28,7 @@ import static de.danielbechler.util.Objects.*;
 
 /** @author Daniel Bechler */
 @SuppressWarnings({"UnusedDeclaration"})
-class Instances
+public class Instances
 {
 	private final Accessor sourceAccessor;
 	private final Object working;
@@ -55,7 +55,7 @@ class Instances
 		return new Instances(RootAccessor.getInstance(), working, base, fresh);
 	}
 
-	Instances(final Accessor sourceAccessor,
+	public Instances(final Accessor sourceAccessor,
 			  final Object working,
 			  final Object base,
 			  final Object fresh)

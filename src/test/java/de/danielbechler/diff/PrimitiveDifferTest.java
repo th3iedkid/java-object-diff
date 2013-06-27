@@ -136,9 +136,9 @@ public class PrimitiveDifferTest
 	}
 
 	private Instances whenInstancesAre(final Class<?> type,
-									   final Object base,
-									   final Object working,
-									   final Object fresh)
+										   final Object base,
+										   final Object working,
+										   final Object fresh)
 	{
 		when(accessor.getType()).then(returnClass(type));
 		when(accessor.getPathElement()).thenReturn(new NamedPropertyElement("ignored"));

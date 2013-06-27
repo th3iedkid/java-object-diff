@@ -25,7 +25,7 @@ import static de.danielbechler.diff.CircularReferenceDetector.*;
 
 /** @author Daniel Bechler */
 @SuppressWarnings("MethodMayBeStatic")
-class DifferDelegator
+public class DifferDelegator
 {
 	private static final Logger logger = LoggerFactory.getLogger(DifferDelegator.class);
 
@@ -47,7 +47,7 @@ class DifferDelegator
 	/**
 	 * Delegates the call to an appropriate {@link de.danielbechler.diff.Differ}.
 	 *
-	 * @return A node representing the difference between the given {@link de.danielbechler.diff.Instances}.
+	 * @return A node representing the difference between the given {@link Instances}.
 	 */
 	public Node delegate(final Node parentNode, final Instances instances)
 	{

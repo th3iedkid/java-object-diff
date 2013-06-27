@@ -14,38 +14,30 @@
  * limitations under the License.
  */
 
-package de.danielbechler.diff
-
-import de.danielbechler.diff.path.CollectionElement
-import de.danielbechler.diff.visitor.PrintingVisitor
+package de.danielbechler.diff.list
+import de.danielbechler.diff.accessor.RootAccessor
 import spock.lang.Specification
-
 /**
  * @author Daniel Bechler
  */
-class ListDiffSpecification extends Specification
+class ListNodeSpecification extends Specification
 {
-  def objectDiffer;
+  ListNode listNode;
 
   def setup()
   {
-    objectDiffer = ObjectDifferFactory.getInstance();
+    listNode = new ListNode(null, RootAccessor.instance, List.class)
   }
 
-  def "detects position switch"()
+  def "should return list of all added items"()
   {
-    de.danielbechler.diff.node.Node node;
-
     when:
-    node = objectDiffer.compare(working, base);
+    listNode.addItem("a", null, -1, 0);
+    listNode.addItem("b", null, 0, -1);
 
     then:
-    node.visit(new PrintingVisitor(working, base));
-    node.getChild(new CollectionElement("a")).getState() == de.danielbechler.diff.node.Node.State.CHANGED;
-    node.getChild(new CollectionElement("b")).getState() == de.danielbechler.diff.node.Node.State.CHANGED;
-
-    where:
-    base       | working
-    ["a", "b"] | ["b", "a"]
+    listNode.items.size() == 2;
+    listNode.items[0] == ListItem.build().working(null, 0).base("a", -1).create();
+    listNode.items[1] == ListItem.build().working(null, -1).base("b", 0).create();;
   }
 }

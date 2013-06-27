@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Daniel Bechler
+ * Copyright 2013 Daniel Bechler
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,12 +14,16 @@
  * limitations under the License.
  */
 
-package de.danielbechler.diff;
+package de.danielbechler.diff.list;
 
+import de.danielbechler.diff.*;
 import de.danielbechler.diff.node.*;
 
 /** @author Daniel Bechler */
-public interface Differ<T extends Node>
+public class ListNodeFactory
 {
-	T compare(Node parentNode, Instances instances);
+	public ListNode createListNode(final Node parentNode, final Instances instances)
+	{
+		return new ListNode(parentNode, instances.getSourceAccessor(), instances.getType());
+	}
 }

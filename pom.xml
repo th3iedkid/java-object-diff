@@ -117,6 +117,8 @@
                     <includes>
                         <include>**/*Test.java</include>
                         <include>**/*Should.java</include>
+                        <include>**/*Behavior.java</include>
+                        <include>**/*Specification.java</include>
                         <include>**/*Spec.java</include>
                     </includes>
                 </configuration>
