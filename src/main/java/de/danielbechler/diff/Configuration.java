@@ -246,6 +246,10 @@ public class Configuration implements NodeInspector
 
 	public boolean isExcluded(final Node node)
 	{
+		if (isExcludedViaTypeConfiguration(node))
+		{
+			return true;
+		}
 		if (excludedProperties.contains(node.getPropertyPath()))
 		{
 			return true;
@@ -255,6 +259,21 @@ public class Configuration implements NodeInspector
 			return true;
 		}
 		return false;
+	}
+
+	private boolean isExcludedViaTypeConfiguration(final Node node)
+	{
+		final Class<?> type = node.getType();
+		if (type == null)
+		{
+			return false;
+		}
+		final PropertyConfiguration configuration = typeConfigurations.get(type);
+		if (configuration == null)
+		{
+			return false;
+		}
+		return configuration.getInclusion() == PropertyConfiguration.Inclusion.EXCLUDED;
 	}
 
 	public boolean isEqualsOnly(final Node node)
@@ -326,5 +345,12 @@ public class Configuration implements NodeInspector
 			return returnChildrenOfRemovedNodes;
 		}
 		return true;
+	}
+
+	private final Map<Class<?>, PropertyConfiguration> typeConfigurations = new HashMap<Class<?>, PropertyConfiguration>();
+
+	public void type(final Class<?> type, final PropertyConfiguration propertyConfiguration)
+	{
+		typeConfigurations.put(type, propertyConfiguration);
 	}
 }
