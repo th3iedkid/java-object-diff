@@ -24,21 +24,21 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>de.danielbechler</groupId>
+    <groupId>in.th3iedkid</groupId>
     <artifactId>java-object-diff</artifactId>
-    <name>Java Object Diff</name>
-    <version>0.13-SNAPSHOT</version>
+    <name>Java Object Diff forked from Java Object Diff by daniel bachelor</name>
+    <version>0.1-SNAPSHOT</version>
 
     <developers>
         <developer>
             <id>SQiShER</id>
-            <name>Daniel Bechler</name>
-            <url>https://github.com/SQiShER</url>
+            <name>th3iedkid</name>
+            <url>https://github.com/th3iedkid</url>
         </developer>
     </developers>
 
-    <url>https://github.com/SQiShER/java-object-diff</url>
-    <description>Framework to detect and handle differences between Java objects</description>
+    <url>https://github.com/th3iedkid/java-object-diff</url>
+    <description>Framework to detect and handle differences between Java objects with some added fun</description>
 
     <licenses>
         <license>
@@ -48,14 +48,14 @@
     </licenses>
 
     <scm>
-        <url>https://github.com/SQiShER/java-object-diff</url>
-        <connection>scm:git:ssh://git@github.com/SQiShER/java-object-diff.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/SQiShER/java-object-diff.git</developerConnection>
+        <url>https://github.com/th3iedkid/java-object-diff</url>
+        <connection>scm:git@github.com:th3iedkid/java-object-diff.git</connection>
+        <developerConnection>scm:git@github.com:th3iedkid/java-object-diff.git</developerConnection>
     </scm>
 
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/SQiShER/java-object-diff/issues</url>
+        <url>https://github.com/th3iedkid/java-object-diff</url>
     </issueManagement>
 
     <properties>
@@ -175,7 +175,7 @@
                         <forced>true</forced>
                     </archive>
                     <instructions>
-                        <Bundle-Vendor>Daniel Bechler</Bundle-Vendor>
+                        <Bundle-Vendor>th3iedkid</Bundle-Vendor>
                         <Bundle-DocURL>${project.url}</Bundle-DocURL>
                         <Export-Package>{local-packages}</Export-Package>
                     </instructions>
